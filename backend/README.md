@@ -17,6 +17,8 @@ to access the database you will also need docker install on your computer. this 
 once docker is installed run the command 
   `docker compose up -d`
 
+make sure to be in the nest-emplate/backend folder to do this
+
 this will install the containers for postgres, redis and aws local stack for s3
 
 once the docker containers are up and running you can use 
