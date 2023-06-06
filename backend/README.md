@@ -8,9 +8,9 @@ a nest js working example with product entities, user entity and session based a
 
 using any package manager install the dependencies 
 
-npm i
-pnpm i
-yarn add
+`npm i`
+`pnpm i`
+`yarn add`
 
 to access the database you will also need docker install on your computer. this step is valid for macos and wsl systems
 
