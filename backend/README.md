@@ -19,4 +19,27 @@ once docker is installed run the command
 
 this will install the containers for postgres, redis and aws local stack for s3
 
+once the docker containers are up and running you can use 
+`npm run migration:run:postgres`
+to get all entities into your database, this step needs to be done before starting the project
+
 you can use nestjs official docs for more info on how the moduel system works with nestjs
+
+## Datbase Interactions
+to generate a migration that auto generates sql bases on the classes defined in .entity.ts files
+
+`migration:generate:postgres` as an arguement to this command you will need to supply the path of the migration file
+for this project it will be src/database/migrations/<name of file>
+
+i use pnpm so if would use 
+`pnpm migration:generate:postgres src/database/migrations/test` 
+ 
+ this same process can be followed to create a blank migration
+`pnpm migration:create:postgres src/database/migrations/test`
+
+to completely drop the db
+`pnpm run db:drop:postgres`
+
+this will clean your entire database and you can run migrations again to fix any errors
+ 
+ 
