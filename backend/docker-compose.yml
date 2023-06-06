@@ -1,0 +1,47 @@
+version: "3.8"
+
+services:
+  rento_postgres:
+    image: postgres:latest
+    container_name: rento_postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: rento
+    ports:
+      - "5432:5432"
+    volumes:
+      - rento_postgres:/var/lib/postgresql/data
+
+  rento_redis:
+    image: redis:latest
+    container_name: rento_redis
+    command: redis-server --requirepass rento
+    environment:
+      - REDIS_PASSWORD=rento
+    ports:
+      - "6379:6379"
+    volumes:
+      - rento_redis:/data
+
+  rento_s3:
+    image: localstack/localstack
+    container_name: rento_s3
+    environment:
+      - SERVICES=s3
+      - DEFAULT_REGION=us-east-1
+      - DATA_DIR=/tmp/localstack/data
+      - DEBUG=1
+      - AWS_ACCESS_KEY_ID=ab12
+      - AWS_SECRET_ACCESS_KEY=ab12
+      - HOSTNAME_EXTERNAL=rento-product-photo.localhost
+    ports:
+      - "4566:4566"
+      - "4571:4571"
+    volumes:
+      - rento_s3_data:/tmp/localstack/data
+
+volumes:
+  rento_postgres:
+  rento_redis:
+  rento_s3_data:
