@@ -28,7 +28,7 @@ to get all entities into your database, this step needs to be done before starti
 you can use nestjs official docs for more info on how the moduel system works with nestjs
 
 ## Datbase Interactions
-to generate a migration that auto generates sql bases on the classes defined in .entity.ts files
+to generate a migration that auto generates sql based on the classes defined in *.entity.ts files
 
 `migration:generate:postgres` as an arguement to this command you will need to supply the path of the migration file
 for this project it will be src/database/migrations/<name of file>
